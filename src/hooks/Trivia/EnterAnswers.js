@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { TriviaQuestions } from "../../TriviaQuestions";
 export const useEnterAnswers = () => {
   const [answers, setAnswers] = useState({});
-
   const enterAnswers = (item, activeSlider) => {
+    console.log(answers);
     setAnswers((prevAnswers) => {
       const updatedSliderAnswers = prevAnswers[activeSlider] || [];
 

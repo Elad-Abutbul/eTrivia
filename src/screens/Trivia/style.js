@@ -17,14 +17,5 @@ export const styles = StyleSheet.create({
   renderList: {
     gap: 40,
   },
-  renderItem: {
-    display: "flex",
-    borderColor: "black",
-    borderWidth: 1,
-    width: width - 100,
-    height: 35,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 5,
-  },
+
 });

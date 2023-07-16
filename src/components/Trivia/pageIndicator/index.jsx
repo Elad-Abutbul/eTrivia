@@ -7,7 +7,7 @@ export const PageIndicator = ({ activeSlider, length }) => {
   for (let index = 0; index < length; index++) {
     const isActive = index === activeSlider;
     const dotStyle = [styles.dot, isActive ? styles.activeDot : null];
-    dots.push(<View style={dotStyle} />);
+    dots.push(<View style={dotStyle} key={index} />);
   }
 
   return <View style={styles.container}>{dots.map((item) => item)}</View>;

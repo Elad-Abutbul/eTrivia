@@ -1,7 +1,7 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import React from "react";
 
-export const ListItem = (item, handlePressItem, styleRenderItem) => {
+export const GenericListItem = (item, handlePressItem, styleRenderItem) => {
   return (
     <TouchableOpacity
       style={styleRenderItem}

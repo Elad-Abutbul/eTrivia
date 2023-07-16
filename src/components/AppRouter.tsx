@@ -12,5 +12,3 @@ export const AppRouter = () => {
     </View>
   );
 };
-
-

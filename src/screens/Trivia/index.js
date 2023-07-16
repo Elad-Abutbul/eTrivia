@@ -13,7 +13,6 @@ const Trivia = () => {
     enterAnswers(item, activeSlider);
   };
 
-  const slider = TriviaQuestions[activeSlider];
   const length = Object.keys(TriviaQuestions).length;
   const handleSave = () => {
     if (answers[activeSlider]) setActiveSlider((prev) => prev + 1);
@@ -23,19 +22,19 @@ const Trivia = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>eTrivia</Text>
-      <Slider
-        answers={answers}
-        handleSave={handleSave}
-        slider={slider}
-        setActiveSlider={setActiveSlider}
-        activeSlider={activeSlider}
-        length={length}
-        handlePressItem={handlePressItem}
-        showAnswer={ShowAnswer}
-        TriviaQuestions={TriviaQuestions}
-        styleRenderList={styles.renderList}
-        styleRenderItem={styles.renderItem}
-      />
+      {length === activeSlider ? (
+        <ShowAnswer answers={answers} TriviaQuestions={TriviaQuestions} />
+      ) : (
+        <Slider
+          answers={answers}
+          handleSave={handleSave}
+          slider={TriviaQuestions[activeSlider]}
+          setActiveSlider={setActiveSlider}
+          activeSlider={activeSlider}
+          length={length}
+          handlePressItem={handlePressItem}
+        />
+      )}
     </View>
   );
 };
