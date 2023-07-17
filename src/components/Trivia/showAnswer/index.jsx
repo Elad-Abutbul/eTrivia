@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
+import { TriviaQuestions } from "../../../TriviaQuestions";
 
-export const ShowAnswer = ({ answers, TriviaQuestions }) => {
+export const ShowAnswer = ({ answers }) => {
   return (
     <View style={styles.container}>
       {Object.keys(TriviaQuestions).map((key) => {
