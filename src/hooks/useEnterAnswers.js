@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { TriviaQuestions } from "../../TriviaQuestions";
 export const useEnterAnswers = () => {
   const [answers, setAnswers] = useState({});
   const enterAnswers = (item, activeSlider) => {
