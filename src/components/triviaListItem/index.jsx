@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     display: "flex",
     borderColor: "green",
     borderWidth: 1,
-    // width: "100%",
     margin: 5,
     justifyContent: "center",
     alignItems: "center",
