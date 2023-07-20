@@ -5,8 +5,8 @@ import { styles } from "./mainStyle";
 
 const App = () => (
   <View style={styles.container}>
-    <AppRouter />
     <StatusBar style="auto" />
+    <AppRouter />
   </View>
 );
 export default App;
