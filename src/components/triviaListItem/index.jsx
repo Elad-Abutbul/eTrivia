@@ -8,7 +8,7 @@ export const TriviaListItem = (item, handlePressItem, key) => {
       style={styles.triviaItem}
       onPress={() => handlePressItem(item)}
     >
-      <Text>{item}</Text>
+      <Text style={{ borderWidth: 1 }}>{item}</Text>
     </TouchableOpacity>
   );
 };
@@ -17,8 +17,7 @@ const styles = StyleSheet.create({
     display: "flex",
     borderColor: "green",
     borderWidth: 1,
-    // width: width - 100,
-    height: 35,
+    margin: 5,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 5,
