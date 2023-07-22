@@ -1,9 +1,17 @@
-import { View, Text, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 import React from "react";
-export const GenericList = ({ list, renderItem, handlePressItem }) => {
+
+export const GenericList = ({
+  list,
+  renderItem,
+  handlePressItem,
+  styleRenderItem,
+}) => {
   return (
-    <ScrollView style={{ borderWidth: 1, width: "100%" }}>
-      {list.map((item, index) => renderItem(item, handlePressItem, index))}
+    <ScrollView>
+      {list.map((item, index) =>
+        renderItem(item, handlePressItem, index, styleRenderItem)
+      )}
     </ScrollView>
   );
 };
