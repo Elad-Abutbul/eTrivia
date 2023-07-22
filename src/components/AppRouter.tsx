@@ -1,14 +1,13 @@
 import React from "react";
-import { View, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 import Trivia from "../screens/Trivia";
-import { styles } from "../routerStyle";
-
+import { routerStyle } from "../routerStyle";
 export const AppRouter = () => {
   return (
-    <View style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <Trivia />
-      </SafeAreaView>
-    </View>
+    <SafeAreaView style={routerStyle.container}>
+      <Trivia />
+    </SafeAreaView>
   );
 };
+
+export default AppRouter;

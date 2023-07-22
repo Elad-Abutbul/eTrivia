@@ -15,6 +15,6 @@ export const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   activeDot: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "#428463",
   },
 });
