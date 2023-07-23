@@ -9,7 +9,6 @@ export const Slider = ({
   handlePressItem,
   renderItem,
   styleRenderItem,
-  answers
 }) => {
   const slider = sliders[activeSlider];
   return (

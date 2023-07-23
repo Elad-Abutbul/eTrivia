@@ -1,3 +1,3 @@
 export * from "./afterQuestions";
-export * from "./pageIndicator";
+export * from "./PageIndicator";
 export * from "./triviaListItem";

@@ -7,14 +7,18 @@ export const triviaStyle = StyleSheet.create({
   },
   header: {
     flex: 0.1,
+    flexDirection: "row",
+    justifyContent: "center",
   },
   eTrivia: {
-    flex: 1,
     fontSize: 14,
+    paddingTop: 5,
     fontWeight: "bold",
-    textAlign: "center",
     color: "#428463",
-    marginBottom: 30,
+  },
+  arrowBack: {
+    position: "absolute",
+    left: 0,
   },
   body: {
     flex: 0.7,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Alert, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { TriviaQuestions } from "../../TriviaQuestions";
@@ -14,13 +14,12 @@ import { triviaStyle } from "./triviaStyle";
 const Trivia = () => {
   const [activeSlider, setActiveSlider] = useState(0);
   const { enterAnswers, answers } = useEnterAnswers();
+
   const handlePressItem = (item) => {
     enterAnswers(item, activeSlider);
   };
-
   const length = Object.keys(TriviaQuestions).length;
   const handleSave = () => {
-    console.log(answers[activeSlider]);
     if (answers[activeSlider]) setActiveSlider((prev) => prev + 1);
     else Alert.alert("Choose at least one");
   };
@@ -28,14 +27,13 @@ const Trivia = () => {
   return (
     <View style={[triviaStyle.container, triviaStyle.margin_15]}>
       <View style={triviaStyle.header}>
-        <View style={triviaStyle.arrowBack}>
-          <TouchableOpacity
-            disabled={activeSlider === 0}
-            onPress={() => setActiveSlider((prev) => prev - 1)}
-          >
-            <Ionicons name="arrow-back" size={24} color="black" />
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          disabled={activeSlider === 0}
+          style={({ opacity: activeSlider }, triviaStyle.arrowBack)}
+          onPress={() => setActiveSlider((prev) => prev - 1)}
+        >
+          <Ionicons name="arrow-back" size={24} color="black" />
+        </TouchableOpacity>
         <Text style={triviaStyle.eTrivia}>è-Trivia</Text>
       </View>
       {length === activeSlider ? (
