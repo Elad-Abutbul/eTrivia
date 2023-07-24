@@ -10,6 +10,8 @@ import {
   PageIndicator,
 } from "../../components/Trivia";
 import { triviaStyle } from "./triviaStyle";
+import { triviaContext } from "../../contextApi/triviaContext";
+import { Body } from "../../components/Trivia/Questions";
 
 const Trivia = () => {
   const [activeSlider, setActiveSlider] = useState(0);
@@ -25,66 +27,67 @@ const Trivia = () => {
   };
 
   return (
-    <View style={[triviaStyle.container, triviaStyle.margin_15]}>
-      <View style={triviaStyle.header}>
-        <TouchableOpacity
-          disabled={activeSlider === 0}
-          style={({ opacity: activeSlider }, triviaStyle.arrowBack)}
-          onPress={() => setActiveSlider((prev) => prev - 1)}
-        >
-          <Ionicons name="arrow-back" size={24} color="black" />
-        </TouchableOpacity>
-        <Text style={triviaStyle.eTrivia}>è-Trivia</Text>
-      </View>
-      {length === activeSlider ? (
-        <>
-          <FinishQuestions bodyStyle={triviaStyle.body} />
-          <View style={triviaStyle.footer}>
-            <View style={triviaStyle.flexRow}>
+    <triviaContext.Provider
+      value={{ handleSave, activeSlider, handlePressItem }}
+    >
+      <View style={[triviaStyle.container, triviaStyle.margin_15]}>
+        <View style={triviaStyle.header}>
+          <TouchableOpacity
+            disabled={activeSlider === 0}
+            style={({ opacity: activeSlider }, triviaStyle.arrowBack)}
+            onPress={() => setActiveSlider((prev) => prev - 1)}
+          >
+            <Ionicons name="arrow-back" size={24} color="black" />
+          </TouchableOpacity>
+          <Text style={triviaStyle.eTrivia}>è-Trivia</Text>
+        </View>
+        {length === activeSlider ? (
+          <>
+            <FinishQuestions bodyStyle={triviaStyle.body} />
+            <View style={triviaStyle.footer}>
+              <View style={triviaStyle.flexRow}>
+                <GenericButton
+                  text={"Let’s continue"}
+                  styleButton={[
+                    triviaStyle.greenBackground,
+                    triviaStyle.button,
+                  ]}
+                  styleTextButton={[
+                    triviaStyle.whiteText,
+                    triviaStyle.fontSize_18,
+                  ]}
+                />
+                <GenericButton
+                  text={"Save for later"}
+                  disabled={true}
+                  styleButton={triviaStyle.button}
+                  styleTextButton={[
+                    triviaStyle.greenText,
+                    triviaStyle.fontSize_18,
+                  ]}
+                />
+              </View>
+            </View>
+          </>
+        ) : (
+          <>
+            <Body />
+            <View style={triviaStyle.footer}>
               <GenericButton
-                text={"Let’s continue"}
                 styleButton={[triviaStyle.greenBackground, triviaStyle.button]}
+                handlePress={handleSave}
                 styleTextButton={[
                   triviaStyle.whiteText,
                   triviaStyle.fontSize_18,
                 ]}
-              />
-              <GenericButton
-                text={"Save for later"}
-                disabled={true}
-                styleButton={triviaStyle.button}
-                styleTextButton={[
-                  triviaStyle.greenText,
-                  triviaStyle.fontSize_18,
-                ]}
+                text={"Save And Continue"}
               />
             </View>
-          </View>
-        </>
-      ) : (
-        <>
-          <View style={triviaStyle.body}>
-            <Slider
-              handleSave={handleSave}
-              sliders={TriviaQuestions}
-              activeSlider={activeSlider}
-              handlePressItem={handlePressItem}
-              renderItem={TriviaListItem}
-              styleRenderItem={[triviaStyle.renderItem, triviaStyle.button]}
-            />
-          </View>
-          <View style={triviaStyle.footer}>
-            <GenericButton
-              styleButton={[triviaStyle.greenBackground, triviaStyle.button]}
-              handlePress={handleSave}
-              styleTextButton={[triviaStyle.whiteText, triviaStyle.fontSize_18]}
-              text={"Save And Continue"}
-            />
-          </View>
-        </>
-      )}
-      <PageIndicator activeSlider={activeSlider} length={length + 1} />
-    </View>
+          </>
+        )}
+        <PageIndicator activeSlider={activeSlider} length={length + 1} />
+      </View>
+    </triviaContext.Provider>
   );
 };
 
