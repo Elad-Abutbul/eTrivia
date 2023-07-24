@@ -26,13 +26,6 @@ export const triviaStyle = StyleSheet.create({
   footer: {
     flex: 0.2,
   },
-  buttonContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    borderWidth: 1,
-    gap: 10,
-  },
   greenBackground: {
     backgroundColor: "#428463",
   },
@@ -66,7 +59,7 @@ export const triviaStyle = StyleSheet.create({
   flexRow: {
     flexDirection: "row",
     justifyContent: "center",
-    gap: 20,
-    margin: 40,
+    margin: 20,
+    gap: 30,
   },
 });

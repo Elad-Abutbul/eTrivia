@@ -18,8 +18,8 @@ export const finishStyle = StyleSheet.create({
     color: "#F6A492",
   },
   image: {
-    width: "80%",
-    height: "80%",
+    width: "75%",
+    height: "75%",
   },
   bigTitle: {
     fontSize: 20,

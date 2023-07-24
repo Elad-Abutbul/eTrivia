@@ -1,5 +1,5 @@
-import { View, Text, Image } from "react-native";
 import React from "react";
+import { View, Text, Image } from "react-native";
 import { finishStyle } from "../finishStyle";
 import { triviaStyle } from "../../../../screens/Trivia/triviaStyle";
 

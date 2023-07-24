@@ -1,8 +1,8 @@
-import { View, Text } from "react-native";
 import React, { useContext } from "react";
-import { triviaStyle } from "../../../../screens/Trivia/triviaStyle";
+import { View } from "react-native";
 import { triviaContext } from "../../../../contextApi/triviaContext";
 import { GenericButton } from "../../../Generic";
+import { triviaStyle } from "../../../../screens/Trivia/triviaStyle";
 
 export const Footer = () => {
   const { handleSave } = useContext(triviaContext);

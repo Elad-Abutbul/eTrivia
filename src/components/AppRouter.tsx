@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native";
+import NetInfo from "@react-native-community/netinfo";
 import Trivia from "../screens/Trivia";
 import NoConnetion from "../screens/NoConnection";
-import NetInfo from "@react-native-community/netinfo";
 import { routerStyle } from "./routerStyle";
 
 export const AppRouter = () => {

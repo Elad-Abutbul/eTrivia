@@ -8,7 +8,7 @@ export const TriviaListItem = (item, handlePressItem, key, styleRenderItem) => {
       onPress={() => handlePressItem(item)}
       style={styleRenderItem}
     >
-      <Text style={{ color: "#428463" }}>{item}</Text>
+      <Text style={{ color: "#428463", fontSize: 17 }}>{item}</Text>
     </TouchableOpacity>
   );
 };
