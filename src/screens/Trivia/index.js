@@ -11,7 +11,7 @@ import {
 } from "../../components/Trivia";
 import { triviaStyle } from "./triviaStyle";
 import { triviaContext } from "../../contextApi/triviaContext";
-import { Body } from "../../components/Trivia/Questions";
+import { Body, Footer } from "../../components/Trivia/Questions";
 
 const Trivia = () => {
   const [activeSlider, setActiveSlider] = useState(0);
@@ -72,17 +72,7 @@ const Trivia = () => {
         ) : (
           <>
             <Body />
-            <View style={triviaStyle.footer}>
-              <GenericButton
-                styleButton={[triviaStyle.greenBackground, triviaStyle.button]}
-                handlePress={handleSave}
-                styleTextButton={[
-                  triviaStyle.whiteText,
-                  triviaStyle.fontSize_18,
-                ]}
-                text={"Save And Continue"}
-              />
-            </View>
+            <Footer />
           </>
         )}
         <PageIndicator activeSlider={activeSlider} length={length + 1} />
