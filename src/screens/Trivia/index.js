@@ -1,20 +1,16 @@
 import React, { useState } from "react";
-import { View, Text, Alert, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { View,Alert } from "react-native";
 import { TriviaQuestions } from "../../TriviaQuestions";
 import { useEnterAnswers } from "../../hooks/useEnterAnswers";
-import { Slider, GenericButton } from "../../components/Generic";
-import {
-  FinishQuestions,
-  TriviaListItem,
-  PageIndicator,
-} from "../../components/Trivia";
+import { PageIndicator } from "../../components/Trivia";
 import { triviaStyle } from "./triviaStyle";
 import { triviaContext } from "../../contextApi/triviaContext";
-import { Body, Footer } from "../../components/Trivia/Questions";
+import { Questions } from "../../components/Trivia/Questions/Questions";
+import { FinishQuestions } from "../../components/Trivia/FinishQuestions/FinishQuestions";
+import { TriviaHeader } from "../../components/Trivia/header";
 
 const Trivia = () => {
-  const [activeSlider, setActiveSlider] = useState(0);
+  const [activeSlider, setActiveSlider] = useState(4);
   const { enterAnswers, answers } = useEnterAnswers();
 
   const handlePressItem = (item) => {
@@ -25,56 +21,16 @@ const Trivia = () => {
     if (answers[activeSlider]) setActiveSlider((prev) => prev + 1);
     else Alert.alert("Choose at least one");
   };
-
+  const goBack = () => {
+    setActiveSlider((prev) => prev - 1);
+  };
   return (
     <triviaContext.Provider
-      value={{ handleSave, activeSlider, handlePressItem }}
+      value={{ handleSave, activeSlider, handlePressItem, goBack }}
     >
       <View style={[triviaStyle.container, triviaStyle.margin_15]}>
-        <View style={triviaStyle.header}>
-          <TouchableOpacity
-            disabled={activeSlider === 0}
-            style={({ opacity: activeSlider }, triviaStyle.arrowBack)}
-            onPress={() => setActiveSlider((prev) => prev - 1)}
-          >
-            <Ionicons name="arrow-back" size={24} color="black" />
-          </TouchableOpacity>
-          <Text style={triviaStyle.eTrivia}>è-Trivia</Text>
-        </View>
-        {length === activeSlider ? (
-          <>
-            <FinishQuestions bodyStyle={triviaStyle.body} />
-            <View style={triviaStyle.footer}>
-              <View style={triviaStyle.flexRow}>
-                <GenericButton
-                  text={"Let’s continue"}
-                  styleButton={[
-                    triviaStyle.greenBackground,
-                    triviaStyle.button,
-                  ]}
-                  styleTextButton={[
-                    triviaStyle.whiteText,
-                    triviaStyle.fontSize_18,
-                  ]}
-                />
-                <GenericButton
-                  text={"Save for later"}
-                  disabled={true}
-                  styleButton={triviaStyle.button}
-                  styleTextButton={[
-                    triviaStyle.greenText,
-                    triviaStyle.fontSize_18,
-                  ]}
-                />
-              </View>
-            </View>
-          </>
-        ) : (
-          <>
-            <Body />
-            <Footer />
-          </>
-        )}
+        <TriviaHeader />
+        {length === activeSlider ? <FinishQuestions /> : <Questions />}
         <PageIndicator activeSlider={activeSlider} length={length + 1} />
       </View>
     </triviaContext.Provider>

@@ -1,9 +1,11 @@
+import { View, Text, Image } from "react-native";
 import React from "react";
-import { View, Image, Text } from "react-native";
-import { finishStyle } from "./finishStyle";
-export const FinishQuestions = ({ bodyStyle }) => {
+import { finishStyle } from "../finishStyle";
+import { triviaStyle } from "../../../../screens/Trivia/triviaStyle";
+
+export const Body = () => {
   return (
-    <View style={[finishStyle.containerFinishQuestions, bodyStyle]}>
+    <View style={[finishStyle.containerFinishQuestions, triviaStyle.bodyStyle]}>
       <Text style={finishStyle.title}>
         You’ve Reached All The Required Questions!
       </Text>
@@ -12,7 +14,7 @@ export const FinishQuestions = ({ bodyStyle }) => {
       </Text>
 
       <Image
-        source={require("../../../assets/pictures/LevelMockup.png")}
+        source={require("../../../../assets/pictures/LevelMockup.png")}
         style={finishStyle.image}
         resizeMode="contain"
       />

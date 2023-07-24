@@ -3,11 +3,12 @@ import { View } from "react-native";
 import { triviaContext } from "../../../../contextApi/triviaContext";
 import { TriviaQuestions } from "../../../../TriviaQuestions";
 import { Slider } from "../../../Generic";
-import { TriviaListItem } from "../../triviaListItem";
+import { TriviaListItem } from "./triviaListItem";
 import { triviaStyle } from "../../../../screens/Trivia/triviaStyle";
 
 export const Body = () => {
-  const { handleSave, activeSlider, handlePressItem } = useContext(triviaContext);
+  const { handleSave, activeSlider, handlePressItem } =
+    useContext(triviaContext);
   return (
     <View style={triviaStyle.body}>
       <Slider

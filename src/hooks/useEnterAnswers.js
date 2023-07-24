@@ -4,6 +4,7 @@ export const useEnterAnswers = () => {
   const [answers, setAnswers] = useState({});
   const enterAnswers = (item, activeSlider) => {
     setAnswers((prevAnswers) => {
+      console.log(answers);
       const updatedSliderAnswers = prevAnswers[activeSlider] || [];
       const itemIndex = updatedSliderAnswers.indexOf(item);
       if (itemIndex !== -1) {
