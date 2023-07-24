@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Text, Alert, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { TriviaQuestions } from "../../TriviaQuestions";
 import { useEnterAnswers } from "../../hooks/useEnterAnswers";
 import { Slider, GenericButton } from "../../components/Generic";
 import {
-  AfterQuestions,
+  FinishQuestions,
   TriviaListItem,
   PageIndicator,
 } from "../../components/Trivia";
@@ -38,7 +38,7 @@ const Trivia = () => {
       </View>
       {length === activeSlider ? (
         <>
-          <AfterQuestions bodyStyle={triviaStyle.body} />
+          <FinishQuestions bodyStyle={triviaStyle.body} />
           <View style={triviaStyle.footer}>
             <View style={triviaStyle.flexRow}>
               <GenericButton
