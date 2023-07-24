@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const finishStyle = StyleSheet.create({
-  containerAfterQuestions: {
+  containerFinishQuestions: {
     flex: 1,
     alignItems: "center",
   },

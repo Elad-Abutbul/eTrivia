@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Image, Text } from "react-native";
 import { finishStyle } from "./finishStyle";
-export const AfterQuestions = ({ bodyStyle }) => {
+export const FinishQuestions = ({ bodyStyle }) => {
   return (
-    <View style={[finishStyle.containerAfterQuestions, bodyStyle]}>
+    <View style={[finishStyle.containerFinishQuestions, bodyStyle]}>
       <Text style={finishStyle.title}>
         You’ve Reached All The Required Questions!
       </Text>

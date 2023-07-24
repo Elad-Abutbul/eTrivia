@@ -6,7 +6,6 @@ export const useEnterAnswers = () => {
     setAnswers((prevAnswers) => {
       const updatedSliderAnswers = prevAnswers[activeSlider] || [];
       const itemIndex = updatedSliderAnswers.indexOf(item);
-      console.log(answers);
       if (itemIndex !== -1) {
         updatedSliderAnswers.splice(itemIndex, 1);
       } else {

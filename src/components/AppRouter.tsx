@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native";
 import Trivia from "../screens/Trivia";
-import { routerStyle } from "../routerStyle";
+import NoConnetion from "../screens/NoConnection";
+import NetInfo from "@react-native-community/netinfo";
+import { routerStyle } from "./routerStyle";
+
 export const AppRouter = () => {
+  const [connectedStatus, setConnectedStatus] = useState<boolean>(false);
+  const checkConnected = async () => {
+    const isConnected = await NetInfo.fetch().then(
+      (state) => state.isConnected
+    );
+    setConnectedStatus(isConnected || false);
+  };
+  useEffect(() => {
+    checkConnected();
+  }, [connectedStatus]);
+
   return (
-    <SafeAreaView style={routerStyle.container}>
-      <Trivia />
-    </SafeAreaView>
+      <SafeAreaView style={routerStyle.container}>
+        {connectedStatus ? <Trivia /> : <NoConnetion />}
+      </SafeAreaView>
   );
 };
 
